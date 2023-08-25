@@ -21,6 +21,7 @@ export const typeDefs = `#graphql
   type Mutation {
     addClient(client: AddClientInput!): Client
     deleteClient(id: ID): [Client]
+    deleteProcessor(id: ID): [Processor]
   }
   input AddClientInput {
     name: String!

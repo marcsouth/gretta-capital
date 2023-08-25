@@ -5,7 +5,7 @@ import App from './App';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000', // Replace with your Apollo Server's URL
+  uri: 'https://gretta-backend-production.up.railway.app/', // Replace with your Apollo Server's URL
   cache: new InMemoryCache(),
 });
 

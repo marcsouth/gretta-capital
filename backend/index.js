@@ -40,6 +40,10 @@ const resolvers = {
       db.clients = db.clients.filter((c) => c.id !== args.id);
       return db.clients;
     },
+    deleteProcessor(_, args) {
+      db.processors = db.processors.filter((p) => p.id !== args.id);
+      return db.processors;
+    },
     addClient(_, args) {
       let client = {
         ...args.client,
@@ -59,12 +63,15 @@ const server = new ApolloServer({
   resolvers,
 });
 
+
+const port = Number.parseInt(process.env.PORT) || 4000;
+
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 //  1. creates an Express app
 //  2. installs your ApolloServer instance as middleware
 //  3. prepares your app to handle incoming requests
-const port = Number.parseInt(process.env.PORT) || 4000;
-
-const { url } = await startStandaloneServer(server, { listen: { port } });
+const { url } = await startStandaloneServer(server, {
+  listen: {port: port},
+});
 
 console.log(`🚀 Server listening at: ${url}`);
