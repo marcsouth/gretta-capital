@@ -10,48 +10,26 @@ import { typeDefs } from "./schema.js";
 // This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    processors() {
-      return db.processors;
+    expenses() {
+      return db.expenses;
     },
-    processor(_, args) {
-      return db.processors.find((processor) => processor.id === args.id);
-    },
-    clients() {
-      return db.clients;
-    },
-    client(_, args) {
-      return db.clients.find((client) => client.id === args.id);
-    },
-  },
-  Processor: {
-    clients(parent) {
-      return db.clients.filter((p) => p.processor_id === parent.id);
-    },
-  },
-  Client: {
-    processors(parent) {
-      return db.processors.filter(
-        (processor) => processor.id === parent.processor_id
-      );
+    expense(_, args) {
+      return db.expenses.find((expense) => expense.id === args.id);
     },
   },
   Mutation: {
-    deleteClient(_, args) {
-      db.clients = db.clients.filter((c) => c.id !== args.id);
-      return db.clients;
+    deleteExpense(_, args) {
+      db.expenses = db.expenses.filter((e) => e.id !== args.id);
+      return db.expenses;
     },
-    deleteProcessor(_, args) {
-      db.processors = db.processors.filter((p) => p.id !== args.id);
-      return db.processors;
-    },
-    addClient(_, args) {
-      let client = {
-        ...args.client,
-        id: Math.floor(Math.random() * 10000).toString(),
-      };
-      db.clients.push(client);
+    addExpense(_, args) {
+      let expense = {
+        ...args.expense,
+        id: Math.floor(Math.random() *10000).toString(),
+      }
+      db.expenses.push(expense);
 
-      return client;
+      return expense;
     },
   },
 };

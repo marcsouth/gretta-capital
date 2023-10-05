@@ -1,30 +1,25 @@
 export const typeDefs = `#graphql
-  type Processor {
+  type Expense {
     id: ID
-    processor: String
-    merchantid: String
-    adress: String
-    ucc: Boolean
-    clients: [Client]
-  }
-  type Client {
-    id: ID
-    name: String
-    processors: [Processor] 
+    card: String
+    item: String
+    amount: Float
+    date: String
+    deductible: Boolean
   }
   type Query {
-    processors: [Processor]
-    processor(id: ID): Processor
-    clients: [Client]
-    client(id: ID): Client
+    expenses: [Expense]
+    expense(id: ID): Expense
   }
   type Mutation {
-    addClient(client: AddClientInput!): Client
-    deleteClient(id: ID): [Client]
-    deleteProcessor(id: ID): [Processor]
+    addExpense( expense: AddExpenseInput!): Expense
+    deleteExpense(id: ID): [Expense]
   }
-  input AddClientInput {
-    name: String!
-    processor: [String!]!
+  input AddExpenseInput {
+    card: String!
+    item: String!
+    amount: Float!
+    date: String!
+    deductible: Boolean!
   }
 `

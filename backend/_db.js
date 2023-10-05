@@ -1,43 +1,36 @@
-const processors = [
+const expenses = [
   {
     id: "1",
-    processor: "American Express",
-    merchantid: "1234554321",
-    adress: "42 Sunny Lane, Orlando, FL, 32887",
-    ucc: true,
+    card: "American Express",
+    item: "hotel",
+    amount: 650.00,
+    date: "08/09/2022",
+    deductible: true
   },
   {
     id: "2",
-    processor: "Paypal",
-    merchantid: "9876598781",
-    adress: "73 Stormy Drive, New Haven, CT,15658 ",
-    ucc: true,
+    card: "American Express",
+    item: "gift",
+    amount: 300.00,
+    date: "08/09/2022",
+    deductible: false
   },
   {
     id: "3",
-    processor: "Stripe",
-    merchantid: "8462946275",
-    adress: "312 Martin Luther Rd, Hoboken, New Jersey, 12341",
-    ucc: false,
+    card: "Bank of America",
+    item: "gas",
+    amount: 20.50,
+    date: "08/09/2022",
+    deductible: true
   },
   {
     id: "4",
-    processor: "Bank of America",
-    merchantid: "1442976276",
-    adress: "2 Whitney Lane, Riverside, Georgia, 63342",
-    ucc: true,
+    card: "Bank of America",
+    item: "food",
+    amount: 120.25,
+    date: "08/08/2022",
+    deductible: false
   },
 ];
 
-const clients = [
-  { id: "1", name: "Jarred Hanks", processor_id: "1" },
-  { id: "2", name: "Chet Hummer", processor_id: "1" },
-  { id: "3", name: "Ana Bunker", processor_id: "2" },
-  { id: "4", name: "Maria Carter", processor_id: "2" },
-  { id: "5", name: "Arnold Tissot", processor_id: "3" },
-  { id: "6", name: "Sherman keys", processor_id: "3" },
-  { id: "7", name: "Douglas Smith", processor_id: "4" },
-  { id: "8", name: "Alex Barrera", processor_id: "4" },
-];
-
-export default { processors, clients };
+export default { expenses };
